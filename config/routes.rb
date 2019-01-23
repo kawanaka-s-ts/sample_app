@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
+  post '/signup',  to: 'users#create'
+
   resources :users
 end
