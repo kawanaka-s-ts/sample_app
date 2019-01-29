@@ -23,6 +23,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      # 更新に成功した場合を扱う。
+    else
+      render 'edit'
+    end
+  end
+
   private
 
     def user_params
@@ -30,3 +39,4 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
 end
+
